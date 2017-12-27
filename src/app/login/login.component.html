@@ -1,0 +1,38 @@
+
+<div class="row" id="loginContainer">
+
+  <form class="form-horizontal">
+
+    <div class="form-group">
+      <label class="control-label col-sm-5">Username: </label>
+      <div class="col-sm-2">
+        <input type="text" class="form-control" size="40" placeholder="Username" name="username" id="username" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-5">Password: </label>
+      <div class="col-sm-2">
+        <input type="password" class="form-control" size="40" placeholder="Password" name="password" id="password" required>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-group-btn">
+      </div>
+    </div>
+  </form>
+
+  <button (click)="login()" type="submit" class="btn btn-primary">Login</button>
+
+  <div class="col-sm-12" id="register">
+    <a href="register">New? Register Now</a>
+  </div>
+
+  <div class="row" id="guest">
+    <a href="dashboard">Continue as Guest</a>
+  </div>
+
+</div>
+
+
