@@ -1,0 +1,6 @@
+div.jumbotron{
+  color:#fff;
+  background-image:url('/assets/min_back.jpg');
+  background-size: cover;
+  height: calc(100vh);
+}

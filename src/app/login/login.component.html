@@ -16,12 +16,23 @@
         <input type="password" class="form-control" size="40" placeholder="Password" name="password" id="password" required>
       </div>
     </div>
-
-    <div class="row">
-      <div class="input-group-btn">
-      </div>
-    </div>
   </form>
+
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Login Type
+      <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#">User</a></li>
+      <li><a href="#">Operator</a></li>
+      <li><a href="#">Admin</a></li>
+    </ul>
+  </div>
+
+  <div class="col-sm-12">
+    <div class="checkbox">
+      <label><input type="checkbox" value="">Remember me</label>
+    </div>
+  </div>
 
   <button (click)="login()" type="submit" class="btn btn-primary">Login</button>
 
@@ -29,9 +40,7 @@
     <a href="register">New? Register Now</a>
   </div>
 
-  <div class="row" id="guest">
-    <a href="dashboard">Continue as Guest</a>
-  </div>
+
 
 </div>
 
