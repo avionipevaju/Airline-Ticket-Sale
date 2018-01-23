@@ -1,0 +1,55 @@
+<div class="row" id="registerContainer">
+
+  <form class="form-horizontal" method="post">
+
+    <div class="form-group">
+      <label class="control-label col-sm-5">First Name: </label>
+      <div class="col-sm-2">
+        <input type="text" class="form-control" size="40" placeholder="First Name" name="firstName" id="firstName"
+               required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-5">Last Name: </label>
+      <div class="col-sm-2">
+        <input type="text" class="form-control" size="40" placeholder="Password" name="lastName" id="lastName"
+               required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-5">Username: </label>
+      <div class="col-sm-2">
+        <input type="text" class="form-control" size="40" placeholder="Username" name="username" id="username" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-5">E-Mail: </label>
+      <div class="col-sm-2">
+        <input type="email" class="form-control" size="40" placeholder="E-Mail" name="email" id="email" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-5">Password: </label>
+      <div class="col-sm-2">
+        <input type="password" class="form-control" size="40" placeholder="Password" name="password" id="password" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-5">Confirm Password: </label>
+      <div class="col-sm-2">
+        <input type="password" class="form-control" size="40" placeholder="Retype password" name="confPassword"
+               id="confPassword"
+               required>
+      </div>
+    </div>
+
+    <button (click)="register()" type="submit" class="btn btn-primary">Register</button>
+
+  </form>
+
+</div>

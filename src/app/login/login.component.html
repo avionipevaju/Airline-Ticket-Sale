@@ -19,12 +19,12 @@
   </form>
 
   <div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Login Type
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="loginTypeButton">Login Type
       <span class="caret"></span></button>
     <ul class="dropdown-menu">
-      <li><a href="#">User</a></li>
-      <li><a href="#">Operator</a></li>
-      <li><a href="#">Admin</a></li>
+      <li><a href="#" (click)="setLoginType('User')">User</a></li>
+      <li><a href="#" (click)="setLoginType('Operator')">Operator</a></li>
+      <li><a href="#" (click)="setLoginType('Admin')">Admin</a></li>
     </ul>
   </div>
 
@@ -37,7 +37,7 @@
   <button (click)="login()" type="submit" class="btn btn-primary">Login</button>
 
   <div class="col-sm-12" id="register">
-    <a href="register">New? Register Now</a>
+    <a routerLink="register">New? Register Now</a>
   </div>
 
 
