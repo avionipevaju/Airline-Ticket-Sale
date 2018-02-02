@@ -10,6 +10,7 @@ import { LoginService } from './login/login.service';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ReservationComponent } from './reservation/reservation.component';
+import { ReservationService } from './reservation/reservation.service';
 
 const appRoutes: Routes = [
   {path: '', component: LoginComponent},
@@ -32,7 +33,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpClientModule
   ],
-  providers: [LoginService],
+  providers: [LoginService, ReservationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

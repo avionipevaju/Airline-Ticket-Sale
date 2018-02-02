@@ -1,0 +1,21 @@
+<div class="col-sm-3 text-left">
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="fromDropdown">From
+      <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li [routerLink]="" *ngFor="let destination of this.reservationService.destinations" (click)="toggleFrom(destination.airport)">
+        <a>{{destination.city}} | {{destination.airport}}</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="col-sm-3 text-left">
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="toDropdown">To
+      <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li [routerLink]="" *ngFor="let destination of this.reservationService.destinations" (click)="toggleTo(destination.airport)">
+        <a>{{destination.city}} | {{destination.airport}}</a></li>
+    </ul>
+  </div>
+</div>
