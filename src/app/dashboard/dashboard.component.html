@@ -1,0 +1,19 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="dashboard">AirlineTicket Dashboard</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a [routerLink]="" (click)="navigate()">Book a flight</a></li>
+      <li><a href="#">Active reservations</a></li>
+      <li><a href="#">History</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> {{username}}</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="row">
+  <router-outlet name="dashboard"></router-outlet>
+</div>
