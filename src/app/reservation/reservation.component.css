@@ -1,0 +1,15 @@
+#listFlights{
+  margin-bottom: 1em;
+}
+
+.panel{
+  visibility: hidden;
+}
+
+li{
+  cursor: pointer;
+}
+
+.flight{
+  cursor: pointer;
+}

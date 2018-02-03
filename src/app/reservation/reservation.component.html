@@ -19,3 +19,55 @@
     </ul>
   </div>
 </div>
+
+<div class="col-sm-3 text-left">
+  <form>
+    Departure Date:
+    <input style="color: black" type="date" name="departure">
+  </form>
+</div>
+
+<div class="col-sm-3 text-left">
+  <form>
+    Return Date:
+    <input style="color: black" type="date" name="return">
+  </form>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="btn btn-primary" (click)="listFlights()" id="listFlights">List Flights</div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-9">
+    <div class="panel panel-default">
+      <div style="color: black" class="panel-body">
+        {{this.reservationService.details.flightNumber}} |
+        {{this.reservationService.details.airplaneRegistration}} |
+        {{this.reservationService.details.company}} |
+        {{this.reservationService.details.airplaneManufacturer}}
+        {{this.reservationService.details.airplaneType}} |
+        {{this.reservationService.details.fromAirport}}
+        {{this.reservationService.details.fromCountry}}
+        {{this.reservationService.details.fromCity}} |
+        {{this.reservationService.details.toAirport}}
+        {{this.reservationService.details.toCountry}}
+        {{this.reservationService.details.toCity}} |
+        {{this.reservationService.details.departureTime}}
+      </div>
+      <div style="color: black" class="panel-body">
+        {{this.reservationService.details.rows}} |
+        {{this.reservationService.details.columns}}
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="panel panel-default text-left">
+      <div style="color: black" class="panel-body" *ngFor="let flight of this.reservationService.flights">
+        <a (click)="chooseFlight(flight.number, flight.departureTime)" class="flight">Flight number: {{flight.number}} Time: {{flight.departureTime}}</a></div>
+    </div>
+  </div>
+</div>
+
