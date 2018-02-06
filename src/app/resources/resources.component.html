@@ -1,0 +1,219 @@
+<div class="col-sm-3">
+  <div class="panel panel-default text-left" id="manageOptions">
+    <div style="color: black" class="panel-body">
+      1. <button class="btn btn-primary btn-resource" (click)="manageAirplanes()">Manage Airplanes</button><br>
+      2. <button class="btn btn-primary btn-resource" (click)="manageFlights()">Manage Flights</button><br>
+      3. <button class="btn btn-primary btn-resource" (click)="manageDestinations()">Manage Destinations</button><br>
+    </div>
+  </div>
+</div>
+<div class="col-sm-9">
+  <div class="panel panel-default text-left" id="manageMain">
+    <div class="panel-body" id="managedAirplanePanel">
+      <div class="form-group">
+        <label class="control-label col-sm-2">Registration</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" size="40" placeholder="Registration" name="registration" id="registration">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2">Company</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" size="40" placeholder="Company" name="company" id="company">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2">Manufacturer</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" size="40" placeholder="Manufacturer" name="manufacturer" id="manufacturer">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2">Type</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" size="40" placeholder="Type" name="type" id="type">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2">Seats</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" size="40" placeholder="Number of seats" name="seats" id="seats">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2">Rows</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" size="40" placeholder="Rows" name="rows" id="rows">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2">Columns</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" size="40" placeholder="Columns" name="columns" id="columns">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2">Range</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" size="40" placeholder="Range" name="range" id="range">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2">Air Speed</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" size="40" placeholder="Air Speed" name="speed" id="speed">
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="airplanesDropdown">Airplanes
+            <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li [routerLink]="" *ngFor="let airplane of this.reservationService.airplanes" (click)="toggleAirplaneManage(airplane.registration)">
+              <a>{{airplane.registration}}</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-sm-3 text-center">
+        <button (click)="editAirplane()" type="submit" class="btn btn-primary" id="editAirplane">Edit</button>
+      </div>
+
+      <div class="col-sm-3 text-center">
+        <button (click)="deleteAirplane()" type="submit" class="btn btn-primary" id="deleteAirplane">Delete</button>
+      </div>
+
+      <div class="col-sm-3 text-right">
+        <button (click)="this.saveAirplane()" type="submit" class="btn btn-primary" id="persistAirplane">Save</button>
+      </div>
+
+    </div>
+
+    <div class="panel-body" id="managedDestinationPanel">
+    <div class="form-group">
+      <label class="control-label col-sm-2">City</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" size="40" placeholder="City" name="city" id="city">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2">Country</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" size="40" placeholder="Country" name="country" id="country">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2">Airport</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" size="40" placeholder="Airport" name="airport" id="airport">
+      </div>
+    </div>
+
+      <div class="col-sm-4 text-left">
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="destinationDropdown">Destinations
+            <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li [routerLink]="" *ngFor="let destination of this.reservationService.destinations" (click)="toggleDestinationManage(destination.airport)">
+              <a>{{destination.city}} | {{destination.country}}</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-sm-4 text-center">
+        <button (click)="editDestination()" type="submit" class="btn btn-primary" id="editDestination">Edit</button>
+      </div>
+
+      <div class="col-sm-4 text-right">
+        <button (click)="saveDestination()" type="submit" class="btn btn-primary" id="persistDest">Save</button>
+      </div>
+
+    </div>
+
+    <div class="panel-body" id="managedFlightsPanel">
+
+      <div class="form-group">
+        <label class="control-label col-sm-2">Flight number</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" size="40" placeholder="Flight number" name="number" id="number">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2">Registration</label>
+        <div class="col-sm-10">
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="airplaneDropdown">Airplane registration
+              <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li [routerLink]="" *ngFor="let airplane of this.reservationService.airplanes" (click)="toggleAirplane(airplane.registration)">
+              <a>{{airplane.registration}}</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2">From</label>
+        <div class="col-sm-10">
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="fromDestDropdown">Destination - from
+              <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li [routerLink]="" *ngFor="let destination of this.reservationService.destinations" (click)="toggleFromDest(destination.airport)">
+                <a>{{destination.city}} | {{destination.airport}}</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2">To</label>
+        <div class="col-sm-10">
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="toDestDropdown">Destination - to
+              <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li [routerLink]="" *ngFor="let destination of this.reservationService.destinations" (click)="toggleToDest(destination.airport)">
+                <a>{{destination.city}} | {{destination.airport}}</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2">Departure time</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" size="40" placeholder="Departure time" name="time" id="time">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2">Flight Time</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" size="40" placeholder="Flight time" name="ftime" id="ftime">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2">Distance</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" size="40" placeholder="Distance" name="distance" id="distance">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2">Gate</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" size="40" placeholder="Gate" name="gate" id="gate">
+        </div>
+      </div>
+
+      <div class="col-sm-12 text-center">
+        <button (click)="saveFlight()" type="submit" class="btn btn-primary" id="persistFlight">Save</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>

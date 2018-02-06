@@ -1,18 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import {ReservationService} from './reservation.service';
+import {ReservationService} from '../reservation/reservation.service';
 declare var $: any;
 
 @Component({
-  selector: 'app-reservation',
-  templateUrl: './reservation.component.html',
-  styleUrls: ['./reservation.component.css']
+  selector: 'app-statistics',
+  templateUrl: './statistics.component.html',
+  styleUrls: ['./statistics.component.css']
 })
-export class ReservationComponent implements OnInit {
+export class StatisticsComponent implements OnInit {
 
   constructor(private reservationService: ReservationService) { }
 
   ngOnInit() {
     this.reservationService.getDestinations();
+    this.reservationService.getAllUsers();
   }
 
   toggleFrom(destination) {
@@ -21,6 +22,12 @@ export class ReservationComponent implements OnInit {
 
   toggleTo(destination) {
     $('#toDropdown').html(destination + ' <span class=\"caret\"></span>');
+  }
+
+  toggleUser(user) {
+    $('#userDropdown').html(user + ' <span class=\"caret\"></span>');
+    this.reservationService.getActiveReservationsUser(user);
+    $('#userDetails').attr('style', 'visibility: visible');
   }
 
   listFlights() {
@@ -75,20 +82,8 @@ export class ReservationComponent implements OnInit {
     table.append(tableBody);
   }
 
-  reserveSeat() {
-    const seatField = document.getElementById('seat') as HTMLInputElement;
-    const seatValue = seatField.value;
-    const rows = this.reservationService.details.rows;
-    const columns = this.reservationService.details.columns;
-    if (seatValue[0] > String.fromCharCode(rows + 65) || seatValue[1] > columns) {
-      alert('Seat doesnt exist');
-      return;
-    }
-    if (seatValue === '') {
-      alert('Seat value not valid');
-      return;
-    }
-    this.reservationService.reserveSeat(seatValue, sessionStorage.getItem('date'));;
+  listUsers() {
+
   }
 
 }

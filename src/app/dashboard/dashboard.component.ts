@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import {ReservationService} from "../reservation/reservation.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -10,14 +11,20 @@ export class DashboardComponent implements OnInit {
 
   username: String;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private reservationService: ReservationService) { }
 
   ngOnInit() {
-    this.username = sessionStorage.getItem('user')
+    this.username = sessionStorage.getItem('user');
+    this.reservationService.getActiveReservations();
   }
 
-  navigate() {
-    this.router.navigate(['/dashboard', {outlets: {'dashboard': ['reservation']}}]);
+  navigate(url) {
+    this.router.navigate(['/dashboard', {outlets: {'dashboard': [url]}}]);
+  }
+
+  logout() {
+    sessionStorage.removeItem('user');
+    this.router.navigate(['']);
   }
 
 }

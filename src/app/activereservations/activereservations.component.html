@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-default text-left" id="flightDetails">
+      <div style="color: black" class="panel-body" *ngFor="let reservations of this.reservationService.activeReservations">
+        {{reservations.flightNumber}} |
+        {{reservations.date}} |
+        {{reservations.departureTime}} |
+        {{reservations.seat}} |
+        {{reservations.gate}} |
+        {{reservations.start}} |
+        {{reservations.destination}} |
+        {{reservations.flightTime}} |
+        {{reservations.distance}} |
+        <a [routerLink]="" (click)="voidReservation(reservations.flightNumber, reservations.date, reservations.seat)">Void reservation | </a>
+        <a [routerLink]="" (click)="getBoardingTicket(reservations.flightNumber, reservations.date, reservations.seat)">Get Boarding Ticket </a>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+.btn-resource {
+  margin-bottom: 1em;
+}
+
+.btn-primary {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#managedAirplanePanel{
+  display: none;
+  color: black;
+}
+
+#managedDestinationPanel{
+  display: none;
+  color: black;
+}
+
+#managedFlightsPanel{
+  display: none;
+  color: black;
+}
+
+#airplanesDropdown{
+  margin-top: 1em;
+}
+
+#destinationDropdown{
+  margin-top: 1em;
+}
+
+li{
+  cursor: pointer;
+}
+
+.form-control{
+  margin-bottom: 1em;
+}
+

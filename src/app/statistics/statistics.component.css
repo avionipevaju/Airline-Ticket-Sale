@@ -21,3 +21,10 @@ li{
 td:hover {
   background-color: red;
 }
+
+#listUserStats {
+  margin-top: 1em;
+}
+
+#userDetails{
+}

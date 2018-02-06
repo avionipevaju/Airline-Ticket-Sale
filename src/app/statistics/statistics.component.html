@@ -61,15 +61,6 @@
       <div style="color: black" class="panel-body">
         <table class="table table-bordered text-center" id="seating">
         </table>
-        <div class="form-group">
-          <label class="control-label col-sm-1">Seat: </label>
-          <div class="col-sm-5">
-            <input type="text" class="form-control" size="40" placeholder="Seat number" name="seat" id="seat">
-          </div>
-          <div class="col-sm-6">
-            <button (click)="reserveSeat()" type="submit" class="btn btn-primary">Reserve</button>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -77,6 +68,36 @@
     <div class="panel panel-default text-left" id="flightPanel">
       <div style="color: black" class="panel-body" *ngFor="let flight of this.reservationService.flights">
         <a (click)="chooseFlight(flight.number, flight.departureTime)" class="flight">Flight number: {{flight.number}} Time: {{flight.departureTime}}</a></div>
+    </div>
+  </div>
+
+    <div class="col-sm-3">
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="userDropdown">Select User
+          <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li [routerLink]="" *ngFor="let user of this.reservationService.users" (click)="toggleUser(user.username)">
+            <a>{{user.username}}</a></li>
+        </ul>
+      </div>
+    </div>
+
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-default text-left" id="userDetails">
+      <div style="color: black" class="panel-body" *ngFor="let reservations of this.reservationService.activeReservations">
+        {{reservations.flightNumber}} |
+        {{reservations.date}} |
+        {{reservations.departureTime}} |
+        {{reservations.seat}} |
+        {{reservations.gate}} |
+        {{reservations.start}} |
+        {{reservations.destination}} |
+        {{reservations.flightTime}} |
+        {{reservations.distance}} |
+      </div>
     </div>
   </div>
 </div>
